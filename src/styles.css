@@ -1,0 +1,46 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: url(images/freddy-quiz-game-wp.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+header {
+  text-align: center;
+  margin-top: 2em;
+}
+
+.name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url(images/freddy-game-invitation.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 400px;
+  height: 250px;
+  margin: 0 auto;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.548), 0 6px 20px 0 rgba(0, 0, 0, 0.527);
+  margin-top: 7em;
+}
+
+form > input {
+  padding: 1em 0.3em 1em 0.5em;
+  margin-left: 3em;
+  width: 250px;
+  background-color: transparent;
+  border: 0;
+  font-family: 'Rubik Wet Paint', cursive;
+  font-size: 25px;
+  color: #3C312C;
+}
+
+input::placeholder {
+  color: #3C312C;
+}
