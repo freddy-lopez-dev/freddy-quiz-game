@@ -28,6 +28,10 @@ header {
   border-radius: 15px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.548), 0 6px 20px 0 rgba(0, 0, 0, 0.527);
   margin-top: 7em;
+  transition : all .5s;
+  -wekit-transition : all .5s;
+  -moz-transition : all .5s;
+  /* display: none; */
 }
 
 form > input {
@@ -43,4 +47,58 @@ form > input {
 
 input::placeholder {
   color: #3C312C;
+}
+
+.quiz-panel {
+  background-color: #1B2634;
+  width: 800px;
+  margin: 0 auto;
+  margin-top: 2em;
+  border: solid 1px whitesmoke;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.548), 0 6px 20px 0 rgba(0, 0, 0, 0.527);
+  transition : all .5s;
+  -wekit-transition : all .5s;
+  -moz-transition : all .5s;
+  display: none;
+}
+
+#maskman {
+  width: 100px;
+  height: 120px;
+  margin: 1em;
+}
+
+.instruction {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: azure;
+}
+
+#type-instruction {
+  width: 620px;
+  text-align: justify;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 12px;
+  line-height: 1.7;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.initiate-game {
+  width: 100%;
+  text-align: center;
+  margin-top: 2em;
+}
+
+.letsgo {
+  cursor: pointer;
+  background-color: #F44589;
+  border: 0;
+  padding: 1em;
+  color: azure;
+  display: none;
+  font-family: 'Press Start 2P', cursive;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.548), 0 6px 20px 0 rgba(0, 0, 0, 0.527);
 }

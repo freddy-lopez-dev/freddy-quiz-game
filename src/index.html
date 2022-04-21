@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,8 +10,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <title>Freddy Quiz Game</title>
 </head>
+
 <body>
   <header>
     <img src="images/freddy-quiz-game.png" alt="">
@@ -18,9 +23,24 @@
   <main>
     <div class="name">
       <form action="">
-        <input type="text" placeholder="What's your name?">
+        <input type="text" placeholder="What's your name?" class="playerName">
       </form>
     </div>
+    <div class="quiz-panel">
+      <div class="mask-man">
+        <div class="instruction">
+          <img src="images/maskman-right.png" alt="" id="maskman">
+          <div>
+            <p id="type-instruction"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="initiate-game">
+      <button class="letsgo">Let's Go!</button>
+    </div>
+
   </main>
 </body>
+
 </html>
