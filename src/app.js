@@ -17,14 +17,13 @@ function hideForm(e) {
 function runInstruction() {
   const autoType = document.getElementById('type-instruction');
   let playerName = document.querySelector('.playerName').value;
-  console.log(playerName);
   var buildWeb = `Hi ${playerName}, You've been lucky to play my quiz game. In order for you to join my forces you need to reach the square tier and answer all of the questions correctly. You only have 3 lives, so use it wisely. You need to choose the correct anwer or else you will fail.`;
   var index = 0;
 
   window.next_letter = function () {
     if (index <= buildWeb.length) {
       autoType.textContent = buildWeb.substr(0, index++);
-      setTimeout("next_letter()", 10);
+      setTimeout("next_letter()", 5);
     }
 
     if (index === buildWeb.length) {
@@ -36,23 +35,11 @@ function runInstruction() {
   next_letter();
 }
 
-
-const easyQuestions = fetch('https://opentdb.com/api.php?amount=5&difficulty=easy')
+function getQuestion(playerlevel) {
+  return fetch(`https://opentdb.com/api.php?amount=1&difficulty=${playerlevel}`)
   .then((result) => result.json())
   .then((data) => data.results)
-
-const medQuestions = fetch('https://opentdb.com/api.php?amount=5&difficulty=medium')
-  .then((result) => result.json())
-  .then((data) => data.results)
-
-const hardQuestions = fetch('https://opentdb.com/api.php?amount=5&difficulty=hard')
-  .then((result) => result.json())
-  .then((data) => data.results)
-
-
-Promise.all([easyQuestions, medQuestions, hardQuestions]).then((values) => {
-  console.log(values[0][0]);
-});
+}
 
 function hideInstruction(e) {
   e.preventDefault();
@@ -68,15 +55,27 @@ function hideInstruction(e) {
 
 
 function playGame(e) {
+  let playerLives = 3;
+  let playerRank = 'easy';
+  let quizCounter = 1;
+
   hideInstruction(e);
+  getQuestion(playerRank)
+  .then((data) => printQuestion(data));
 }
 
-
+function printQuestion(data) {
+  console.log(data[0].question);
+  var question = data[0].question;
+  const questionCounter = document.getElementById('question-counter');
+  questionCounter.textContent = question;
+}
 
 formName.addEventListener('submit', (e) => {
   hideForm(e);
   runInstruction();
 });
+
 startGame.addEventListener('click', (e) => {
   playGame(e);
 });

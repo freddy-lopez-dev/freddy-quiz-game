@@ -115,4 +115,63 @@ input::placeholder {
   -wekit-transition : all .5s;
   -moz-transition : all .5s;
   display: none;
+  font-family: 'Press Start 2P', cursive;
+}
+
+#question-counter {
+  width: 620px;
+  text-align: justify;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 12px;
+  line-height: 1.7;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.circle {
+  background-color: #1D5C3D;
+  color: white;
+  border: 0;
+  padding: 1em;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.triangle {
+  background-color: #B73229;
+  color: white;
+  border: 0;
+  padding: 1em;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.star {
+  background-color: #E6A901;
+  color: white;
+  border: 0;
+  padding: 1em;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.umbrella {
+  background-color: #015DB0;
+  color: white;
+  border: 0;
+  padding: 1em;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.quiz-number {
+  margin-top: 2em;
+}
+
+.option {
+  margin-bottom: 2em;
 }
