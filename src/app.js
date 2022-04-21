@@ -1,13 +1,11 @@
+let obj = document.querySelector('.name');
+let quizPanel = document.querySelector('.quiz-panel');
+let questionPanel = document.querySelector('.questions-panel');
+const startGame = document.querySelector('.letsgo')
 const formName = document.querySelector('form')
-formName.addEventListener('submit', (e) => {
-  hideForm(e);
-  runInstruction();
-});
 
 function hideForm(e) {
   e.preventDefault();
-  let obj = document.querySelector('.name');
-  let quizPanel = document.querySelector('.quiz-panel');
   obj.style.opacity = '0';
   window.setTimeout(
     function removethis() {
@@ -26,7 +24,7 @@ function runInstruction() {
   window.next_letter = function () {
     if (index <= buildWeb.length) {
       autoType.textContent = buildWeb.substr(0, index++);
-      setTimeout("next_letter()", 60);
+      setTimeout("next_letter()", 10);
     }
 
     if (index === buildWeb.length) {
@@ -42,12 +40,10 @@ function runInstruction() {
 const easyQuestions = fetch('https://opentdb.com/api.php?amount=5&difficulty=easy')
   .then((result) => result.json())
   .then((data) => data.results)
-  .then((data) => console.log(data))
 
 const medQuestions = fetch('https://opentdb.com/api.php?amount=5&difficulty=medium')
   .then((result) => result.json())
   .then((data) => data.results)
-  .then((data) => console.log(data))
 
 const hardQuestions = fetch('https://opentdb.com/api.php?amount=5&difficulty=hard')
   .then((result) => result.json())
@@ -55,5 +51,32 @@ const hardQuestions = fetch('https://opentdb.com/api.php?amount=5&difficulty=har
 
 
 Promise.all([easyQuestions, medQuestions, hardQuestions]).then((values) => {
-  console.log(values);
+  console.log(values[0][0]);
+});
+
+function hideInstruction(e) {
+  e.preventDefault();
+  quizPanel.style.opacity = '0';
+  startGame.style.opacity = '0';
+  window.setTimeout(
+    function removethis() {
+      quizPanel.style.display = 'none';
+      startGame.style.display = 'none';
+      questionPanel.style.display = 'block';
+    }, 300);
+}
+
+
+function playGame(e) {
+  hideInstruction(e);
+}
+
+
+
+formName.addEventListener('submit', (e) => {
+  hideForm(e);
+  runInstruction();
+});
+startGame.addEventListener('click', (e) => {
+  playGame(e);
 });

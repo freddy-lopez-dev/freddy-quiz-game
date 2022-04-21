@@ -102,3 +102,17 @@ input::placeholder {
   font-family: 'Press Start 2P', cursive;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.548), 0 6px 20px 0 rgba(0, 0, 0, 0.527);
 }
+
+.questions-panel {
+  background-color: #1B2634;
+  width: 800px;
+  margin: 0 auto;
+  margin-top: 2em;
+  border: solid 1px whitesmoke;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.548), 0 6px 20px 0 rgba(0, 0, 0, 0.527);
+  transition : all .5s;
+  -wekit-transition : all .5s;
+  -moz-transition : all .5s;
+  display: none;
+}
