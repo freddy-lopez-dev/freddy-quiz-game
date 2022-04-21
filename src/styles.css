@@ -90,6 +90,7 @@ input::placeholder {
   width: 100%;
   text-align: center;
   margin-top: 2em;
+  display: none;
 }
 
 .letsgo {
@@ -98,7 +99,6 @@ input::placeholder {
   border: 0;
   padding: 1em;
   color: azure;
-  display: none;
   font-family: 'Press Start 2P', cursive;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.548), 0 6px 20px 0 rgba(0, 0, 0, 0.527);
 }
