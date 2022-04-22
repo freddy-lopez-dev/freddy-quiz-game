@@ -128,8 +128,8 @@ input::placeholder {
   margin-bottom: 2em;
 }
 
-.circle {
-  background-color: #1D5C3D;
+.answer {
+  background-color: #F44589;
   color: white;
   border: 0;
   padding: 1em;

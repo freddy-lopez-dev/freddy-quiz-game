@@ -36,9 +36,9 @@ function runInstruction() {
 }
 
 function getQuestion(playerlevel) {
-  return fetch(`https://opentdb.com/api.php?amount=1&difficulty=${playerlevel}`)
-  .then((result) => result.json())
-  .then((data) => data.results)
+  return fetch(`https://opentdb.com/api.php?amount=1&difficulty=${playerlevel}&type=multiple`)
+    .then((result) => result.json())
+    .then((data) => data.results)
 }
 
 function hideInstruction(e) {
@@ -61,12 +61,19 @@ function playGame(e) {
 
   hideInstruction(e);
   getQuestion(playerRank)
-  .then((data) => printQuestion(data));
+    .then((data) => printQuestion(data));
 }
 
 function printQuestion(data) {
   console.log(data[0].question);
   var question = data[0].question;
+  let answers = [data[0].correct_answer, data[0].incorrect_answers[0], data[0].incorrect_answers[1], data[0].incorrect_answers[2]]
+  const answerButton = document.querySelectorAll('.answer')
+  answerButton.forEach((button) => {
+    var idx = Math.floor(Math.random() * answers.length);
+    button.textContent = answers[idx];
+    answers.splice(idx, 1);
+  })
   const questionCounter = document.getElementById('question-counter');
   questionCounter.textContent = question;
 }
