@@ -1,8 +1,12 @@
-let obj = document.querySelector('.name');
-let quizPanel = document.querySelector('.quiz-panel');
-let questionPanel = document.querySelector('.questions-panel');
+const obj = document.querySelector('.name');
+const quizPanel = document.querySelector('.quiz-panel');
+const questionPanel = document.querySelector('.questions-panel');
+const quizEl = document.querySelector('.quiz-number');
 const startGame = document.querySelector('.letsgo')
 const formName = document.querySelector('form')
+const answerEvent = document.querySelector('.option');
+let playerLives = 3;
+let quizCounter = 1;
 
 function hideForm(e) {
   e.preventDefault();
@@ -55,13 +59,12 @@ function hideInstruction(e) {
 
 
 function playGame(e) {
-  let playerLives = 3;
   let playerRank = 'easy';
-  let quizCounter = 1;
 
   hideInstruction(e);
   getQuestion(playerRank)
-    .then((data) => printQuestion(data));
+    .then((data) => printQuestion(data))
+
 }
 
 function printQuestion(data) {
@@ -75,7 +78,10 @@ function printQuestion(data) {
     answers.splice(idx, 1);
   })
   const questionCounter = document.getElementById('question-counter');
+  quizEl.textContent = `Quiz: ${quizCounter}`;
   questionCounter.textContent = question;
+
+  chooseAnswer(data[0].correct_answer);
 }
 
 formName.addEventListener('submit', (e) => {
@@ -86,3 +92,21 @@ formName.addEventListener('submit', (e) => {
 startGame.addEventListener('click', (e) => {
   playGame(e);
 });
+
+
+function chooseAnswer(correctAnswer) {
+  answerEvent.addEventListener('click', (e) => {
+    if (e.target.className = 'answer') {
+      checkAnswer(e.target.textContent, correctAnswer);
+    }
+  })
+}
+
+function checkAnswer(userAns, correctAns) {
+  if (userAns === correctAns) {
+    alert('Correct!');
+    quizCounter++;
+  } else {
+    alert('Incorrect');
+  }
+}
